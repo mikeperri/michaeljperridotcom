@@ -83,6 +83,10 @@
                 canvasCtx.clearRect(PIXEL_LENGTH * x, PIXEL_LENGTH * y, PIXEL_LENGTH, PIXEL_LENGTH);
             }
         }
+
+        self.reset = function () {
+            canvasCtx.clearRect(0, 0, canvasEl.width, canvasEl.height);
+        }
     }
 
     function Life(canvasManager) {
@@ -91,6 +95,7 @@
         var width;
         var height;
         var DELAY = 200;
+        var RESET_DELAY = 2000;
         var START_ALIVE_PROBABILITY = .2;
         var pixelsToFlip;
 
@@ -129,9 +134,12 @@
                 }
             }
 
-            canvasManager.flipPixels(pixelsToFlip);
-
-            updateAfterDelay();
+            if (pixelsToFlip.length) {
+                canvasManager.flipPixels(pixelsToFlip);
+                updateAfterDelay();
+            } else {
+                window.setTimeout(resetBoard, RESET_DELAY);
+            }
         }
 
         function updateAfterDelay() {
@@ -140,11 +148,8 @@
             }, DELAY);
         }
 
-        this.init = function (_canvasManager_) {
-            canvasManager = _canvasManager_;
-            width = canvasManager.getVirtualWidth();
-            height = canvasManager.getVirtualHeight();
-            pixelsToFlip = [];
+        function resetBoard() {
+            var pixelsToFlip = [];
 
             for (var x = 0; x < width; x++) {
                 for (var y = 0; y < height; y++) {
@@ -154,9 +159,17 @@
                 }
             }
 
+            canvasManager.reset();
             canvasManager.flipPixels(pixelsToFlip);
-
             updateAfterDelay();
+        }
+
+        this.init = function (_canvasManager_) {
+            canvasManager = _canvasManager_;
+            width = canvasManager.getVirtualWidth();
+            height = canvasManager.getVirtualHeight();
+
+            resetBoard();
         }
     }
 
