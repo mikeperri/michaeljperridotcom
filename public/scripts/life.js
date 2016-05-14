@@ -28,13 +28,13 @@
         var self = this;
         var PIXEL_LENGTH = 40;
         var CANVAS_FILL_STYLE = "#004E61";
-        var canvasEl;
-        var canvasCtx;
-        var virtualWidth;
-        var virtualHeight;
+        var canvasEl, canvasCtx;
+        var virtualWidth, virtualHeight;
         var pixelMap;
 
         self.init = function (_canvasEl_) {
+            var canvasWidth, canvasHeight;
+
             canvasEl = _canvasEl_;
             canvasCtx = canvasEl.getContext('2d');
             canvasWidth = canvasEl.width;
@@ -45,7 +45,17 @@
 
             self.getPixel = pixelMap.getPixel;
 
+            applyOffsets(canvasWidth, canvasHeight);
             canvasCtx.fillStyle = CANVAS_FILL_STYLE;
+        }
+
+        function applyOffsets(canvasWidth, canvasHeight) {
+            var widthOffset = PIXEL_LENGTH * ((canvasWidth / PIXEL_LENGTH) - Math.floor(canvasWidth / PIXEL_LENGTH));
+            var heightOffset = PIXEL_LENGTH * ((canvasHeight / PIXEL_LENGTH) - Math.floor(canvasHeight / PIXEL_LENGTH));
+
+            canvasEl.width += widthOffset;
+            canvasEl.height += heightOffset;
+            canvasEl.style.transform = "translate(-" + widthOffset + "px, -" + heightOffset + "px)";
         }
 
         self.getVirtualWidth = function () {
