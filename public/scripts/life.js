@@ -4,6 +4,16 @@
         this.arr = new Uint8ClampedArray(width * height);
 
         this.getPixel = function (x, y) {
+            // wrap
+            if (x < 0) {
+                x = width - 1;
+            } else if (x >= width) {
+                x = 0;
+            } else if (y < 0) {
+                y = height - 1;
+            } else if (y >= height) {
+                y = 0;
+            }
             var pixel = self.arr[(y * width) + x];
             return typeof pixel === "number" ? pixel : null;
         }
@@ -93,9 +103,8 @@
         }
 
         function update() {
-            var pixel;
+            var pixelVal;
             var neighborCount;
-            var pixel;
             pixelsToFlip = [];
 
             for (var x = 0; x < width; x++) {
