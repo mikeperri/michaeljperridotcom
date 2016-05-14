@@ -10,6 +10,15 @@
                 width: 50px;
                 height: auto;
             }
+            address {
+                flex: 1;
+                display: flex;
+            }
+            address a {
+                flex: 1;
+                text-decoration: none;
+                padding: 0 5px;
+            }
         </style>
     {{/content}}
     {{#content "top"}}
@@ -19,8 +28,14 @@
     {{/content}}
     {{#content "bottom"}}
         <address class="fade-in">
+            <a href="https://github.com/mikeperri">
+                <img src="./images/github.png">
+            </a>
             <a id="mail-link">
                 <img src="./images/mail.png">
+            </a>
+            <a href="https://www.linkedin.com/in/michaeljperri">
+                <img src="./images/linkedin.png">
             </a>
         </address>
     {{/content}}
