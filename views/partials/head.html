@@ -1,0 +1,40 @@
+<title>{{ title }}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+{{#if life}}
+<script type="text/javascript" src="./scripts/life.js"></script>
+{{/if}}
+<style type="text/css">
+    body {
+        background-color: #00242d;
+        color: #fff;
+        font-family: 'Cabin', sans-serif;
+        text-align: center;
+        margin: 0;
+    }
+    section.main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 2em;
+    }
+    .fade-in {
+        animation-duration: 2s;
+        animation-name: fadein;
+    }
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    {{#if life}}
+    #bg-canvas {
+        position: fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+    }
+    {{/if}}
+</style>

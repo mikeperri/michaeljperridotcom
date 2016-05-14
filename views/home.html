@@ -1,0 +1,27 @@
+{{#extend "thirds-layout"}}
+    {{#content "head" mode="prepend"}}
+        <script type="text/javascript" src="./scripts/mail.js"></script>
+        <style type="text/css">
+            body {
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+            #mail-link img {
+                width: 50px;
+                height: auto;
+            }
+        </style>
+    {{/content}}
+    {{#content "top"}}
+        <h3 class="fade-in">
+            Michael J Perri
+        </h3>
+    {{/content}}
+    {{#content "bottom"}}
+        <address class="fade-in">
+            <a id="mail-link">
+                <img src="./images/mail.png">
+            </a>
+        </address>
+    {{/content}}
+{{/extend}}

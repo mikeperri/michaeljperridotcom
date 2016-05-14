@@ -1,0 +1,25 @@
+{{#extend "base-layout"}}
+    {{#content "head" mode="prepend"}}
+        <style type="text/css">
+            section.main {
+                max-width: 860px;
+            }
+            h3.title {
+                margin: 0;
+                padding: 1em;
+            }
+            p {
+                line-height: 24px;
+            }
+        </style>
+    {{/content}}
+    {{#content "body"}}
+        <section class="main default">
+            <h3 class="title">{{title}}</h3>
+            <div class="content">
+                {{#block "content"}}
+                {{/block}}
+            </div>
+        </section>
+    {{/content}}
+{{/extend}}

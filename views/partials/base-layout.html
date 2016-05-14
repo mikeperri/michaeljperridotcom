@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        {{#embed "head"}}
+        {{/embed}}
+        {{#block "head"}}
+        {{/block}}
+    </HEAD>
+    <BODY>
+        {{#block "body"}}
+        {{/block}}
+        {{#if life}}
+            <canvas id="bg-canvas" />
+        {{/if}}
+    </BODY>
+</HTML>

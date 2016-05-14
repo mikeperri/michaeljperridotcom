@@ -1,0 +1,18 @@
+{
+  "name": "michaeljperridotcom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "handlebars-layouts": "^3.1.3",
+    "hapi": "^13.4.0",
+    "inert": "^4.0.0",
+    "vision": "^4.1.0"
+  }
+}
