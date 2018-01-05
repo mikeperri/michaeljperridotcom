@@ -1,0 +1,24 @@
+{{#extend "default-layout"}}
+    {{#content "head" mode="prepend"}}
+        <script type="text/javascript" src="./scripts/tv-dimensions.js"></script>
+    {{/content}}
+    {{#content "content"}}
+        <h4>
+            Calculate the width and height of a 16:9 TV
+        </h4>
+        <label for="diagonal">Diagonal</label>
+        <input type="text" id="diagonal" />
+        <div>
+            <h4>
+                Width:
+                <span id="width"></span>
+            </h4>
+        </div>
+        <div>
+            <h4>
+                Height:
+                <span id="height"></span>
+            </h4>
+        </div>
+    {{/content}}
+{{/extend}}

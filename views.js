@@ -42,5 +42,19 @@ module.exports = function Views(server) {
                 }
             }
         });
+
+        server.route({
+            method: 'GET',
+            path: '/tv-dimensions',
+            handler: {
+                view: {
+                    template: 'tv-dimensions',
+                    context: {
+                        title: 'TV Dimensions',
+                        life: true
+                    }
+                }
+            }
+        });
     });
 };
