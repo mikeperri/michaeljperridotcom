@@ -1,11 +1,15 @@
 (function () {
+    function round(n) {
+        return Math.round(n * 10) / 10;
+    }
+
     function getTvDimensions(diagonal) {
         const width = Math.sqrt(Math.pow(diagonal, 2) * (256 / 337));
         const height = 9 * width / 16
 
         return {
-            width,
-            height,
+            width: round(width),
+            height: round(height),
         };
     }
 
